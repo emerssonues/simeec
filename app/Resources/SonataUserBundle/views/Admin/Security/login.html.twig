@@ -1,0 +1,76 @@
+{% extends base_template %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/applicationcore/css/corelogin.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('body').append('</div>');
+        });
+    </script>
+{% endblock %}
+
+{% block sonata_nav %}
+{% endblock sonata_nav %}
+
+{% block sonata_header %}
+    <div id="wrapper">
+        <header class="header">
+            {% block logo %}
+                <center><img class="banner" src="{{ asset('bundles/applicationcore/images/banner.png') }}" alt="Ministerio de Salud banner" /></center>
+            {% endblock logo %}
+        </header>
+{% endblock sonata_header %}
+
+{% block sonata_left_side %}
+{% endblock sonata_left_side %}
+
+{% block body_attributes %}class="sonata-bc bg-black"{% endblock %}
+
+{% block sonata_wrapper %}
+    <div class="form-box" id="login-box">
+        <div class="header">{# 'title_user_authentication'|trans({}, 'SonataUserBundle') #}</div>
+        {% block sonata_user_login_form %}
+            <form action="{{ path("sonata_user_admin_security_check") }}" method="post" role="form">
+                <div class="body bg-gray">
+                    {% block sonata_user_login_error %}
+                        {% if error %}
+                            <div class="alert alert-danger alert-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                        {% endif %}
+                    {% endblock %}
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+                    <div class="form-group control-group">
+                        <label>Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="username"  name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans({}, 'SonataUserBundle') }}"/>
+                    </div>
+
+
+                    <div class="form-group control-group">
+                        <label>Contrase&ntilde;a</label>
+                        <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans({}, 'SonataUserBundle') }}"/>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                    </div>-->
+
+                </div>
+
+                <div class="footer">
+                    <center><button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button></center>
+                    <!--<p><a href="{{ path('fos_user_resetting_request') }}" class="text-center">{{ 'forgotten_password'|trans({}, 'SonataUserBundle') }}</a></p>-->
+                </div>
+            </form>
+        {% endblock %}
+    </div>
+    <div class="page-footer"><img class="dtic-footer" src="{{ asset("bundles/applicationcore/images/dtic.png") }}" alt="dtic"/>Direcci&oacute;n de Tecnolog&iacute;s de Informaci&oacute;n y Comunicaciones - Ministerio de Salud</div>
+{% endblock sonata_wrapper %}

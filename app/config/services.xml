@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+    <service id="sonata.admin.departamento" class="Minsal\PruebaBundle\Admin\DepartamentoAdmin">
+        <tag name="sonata.admin" manager_type="orm" group="Catalogo" label="Departamento" icon=""/>
+        <argument />
+        <argument>Minsal\PruebaBundle\Entity\Departamento</argument>
+        <argument>SonataAdminBundle:CRUD</argument>
+    </service>
+  </services>
+</container>

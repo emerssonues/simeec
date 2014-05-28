@@ -1,0 +1,136 @@
+body, html {
+    background-color: white !important;
+    min-height: 100% !important;
+}
+
+body > .header .navbar {
+    margin-left: 0 !important;
+}
+
+body > .header .logo {
+    float: none !important;
+    text-align: center !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+}
+
+.skin-black .logo {
+    background-color: transparent !important;
+}
+
+.skin-black .logo:hover {
+    background: transparent !important;
+}
+
+.skin-black .navbar {
+    background-color: transparent;
+}
+
+header.header {
+    position: relative !important;
+    max-height: none !important;
+
+    background-color: #dcdcdc;
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #FFFFFF 60%, #ededed);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #FFFFFF 60%, #ededed);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #FFFFFF 60%, #ededed);
+
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+}
+
+body.fixed .navbar {
+    position: relative;
+}
+
+body > .header .navbar {
+    height: auto !important;
+}
+
+.navbar-default {
+    background-color: #FFFFFF;
+}
+
+.content, .right-side {
+    background: #fdfdfd;
+}
+
+.navbar-btn.sidebar-toggle {
+    display: none;
+}
+
+.sonata-bc .breadcrumb {
+    float: none !important;
+}
+
+.row.row-breadcrumb {
+    margin-bottom: 0px !important;
+    min-height: 50px !important;
+}
+
+.col-md-12.breadcrumb {
+    padding: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.right-side {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+body.fixed .wrapper {
+    margin-top: 0;
+}
+
+div.wrapper.row-offcanvas.row-offcanvas-left {
+    min-height: 100% !important;
+    padding-bottom: 35px !important;
+}
+
+.page-footer {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    color: whiteSmoke;
+    height: 29px;
+    line-height: 29px;
+    text-align: right;
+    padding: 0 40px 0 30px;
+    font-weight:bold;
+
+    background-color: #9BDDFF;
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, left top, right top, from(#9BDDFF), to(#062A78));
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(left, #9BDDFF, #062A78);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left, #9BDDFF, #062A78);
+    /* IE 10 */
+    background: -ms-linear-gradient(left, #9BDDFF, #062A78);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left, #9BDDFF, #062A78);
+}
+
+.page-footer .dtic-footer {
+    margin-right: 7px;
+    height: 17px;
+}
+
+.navbar-toggle {
+    float: left;
+}
+
+.navbar-toggle .icon-bar {
+    background: #3c8dbc;
+}
+
+@media (max-width: 891px) {
+    .banner {
+        width:100% !important;
+    }
+}
