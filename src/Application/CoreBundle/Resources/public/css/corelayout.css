@@ -1,6 +1,12 @@
 body, html {
     background-color: white !important;
-    min-height: 100% !important;
+    height: 100% !important;
+    min-height: initial !important;
+    margin: 0;
+}
+
+html {
+    height: 100% !important;
 }
 
 body > .header .navbar {
@@ -88,7 +94,7 @@ body.fixed .wrapper {
 }
 
 div.wrapper.row-offcanvas.row-offcanvas-left {
-    min-height: 100% !important;
+    min-height: initial !important;
     padding-bottom: 35px !important;
 }
 
