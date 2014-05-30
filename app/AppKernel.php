@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Application\CoreBundle\ApplicationCoreBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
