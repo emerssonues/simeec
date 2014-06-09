@@ -108,6 +108,7 @@ div.wrapper.row-offcanvas.row-offcanvas-left {
     text-align: right;
     padding: 0 40px 0 30px;
     font-weight:bold;
+    z-index: 1;
 
     background-color: #9BDDFF;
     /* Safari 4-5, Chrome 1-9 */
