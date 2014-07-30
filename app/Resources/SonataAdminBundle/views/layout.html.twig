@@ -63,7 +63,7 @@
                                     {% block side_bar_before_nav %} {% endblock %}
                                     {% block side_bar_nav %}
                                         {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
-                                            <ul class="nav navbar-nav">
+                                            <!--ul class="nav navbar-nav">
                                                 {% for group in admin_pool.dashboardgroups %}
                                                     {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
                                                     {% for role in group.roles if not display %}
@@ -103,7 +103,13 @@
                                                         </li>
                                                     {% endif %}
                                                 {% endfor %}
-                                            </ul>
+                                            </ul-->
+                                            {% block custom_menu %}
+                                                {% if app.user %}
+                                                    {% set cus_menu = knp_menu_get('ApplicationCoreBundle:MenuBuilder:mainMenu', [], {'admin': admin_pool.dashboardgroups, 'user':app.user}) %}
+                                                    {{ knp_menu_render(cus_menu, {'currentClass': 'active', 'template': 'ApplicationCoreBundle:Menu:knp_menu.html.twig'}) }}
+                                                {% endif %}
+                                            {% endblock %}
                                         {% endif %}
                                     {% endblock side_bar_nav %}
                                     {% block side_bar_after_nav %}
