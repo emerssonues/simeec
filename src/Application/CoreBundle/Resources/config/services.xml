@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <!--AGREGADO PARA PODER EDITAR EL FORMULARIO DE CREACIÓN DEL USUARIO-->
+        <service id="sonata.user.admin.user" class="Application\Sonata\UserBundle\Admin\UserAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="US-1-Usuario" label="Usuario" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>Application\Sonata\UserBundle\Entity\User</argument>
+            <argument>%sonata.user.admin.user.controller%</argument>
+            <call method="setUserManager">
+                <argument type="service" id="fos_user.user_manager" />
+            </call>
+            <call method="setTranslationDomain">
+                <argument>%sonata.user.admin.user.translation_domain%</argument>
+            </call>
+        </service>
+    </services>
+</container>
+

@@ -20,3 +20,4 @@ app/config/parameters.yml
 composer.lock
 composer.phar
 
+nbproject/*
