@@ -1,44 +1,44 @@
-SIS
+Plantilla Symfony
 ========================
-SIS es una plantilla que utiliza las versiones mas actualizadas de Symfony en su version
+Plantilla Symfony es una plantilla que utiliza las versiones más actualizadas de Symfony en su versión
 2.4 y Sonata con sus respectivos bunldes, la idea de este proyecto es facilitar la
-actulizacion de Symfony y Sonata a versiones posteriores, permitiendo con ello crear
-una estructura que permita integrar o actualizar los sistemas de verisones antiguas
-a una version mas reciente.
+actualización de Symfony y Sonata a versiones posteriores, permitiendo con ello crear
+una estructura que permita integrar o actualizar los sistemas de versiones antiguas
+a una version más reciente.
 
-Instalacion del Sistema
+Instalación del Sistema
 ========================
 
-Esta documentacion contiene informacion de como descargar, instalar el SIS.
+Esta documentación contiene información de como descargar, instalar la Plantilla Symfony.
 
 1) Clonar el proyecto del repositorio
 --------------------------------------
 
-    git clone git@<servidor>:<directorio>/sis.git
+    git clone git@<servidor>:<directorio>/plantilla_symfony.git
 
 ### Uso de Composer (*recomendado*)
 
-SIS utiliza Composer para manejar las dependencias (bundles) que son utilizados dentro del proyecto.
+Plantilla Symfony utiliza Composer para manejar las dependencias (bundles) que son utilizados dentro del proyecto.
 
-Si no se tiene composer instalado utilizar el siguiente comando dentro del directorio sisbl:
+Si no se tiene composer instalado utilizar el siguiente comando dentro del directorio raíz del proyecto:
 
     curl -s http://getcomposer.org/installer | php
 
-2) Configuracion de la base de datos
+2) Configuración de la base de datos
 -------------------------------------
-Creacion del usuario de la base de datos como usuario **postgres** ejecutar:
+Creación del usuario de la base de datos como usuario **postgres** ejecutar:
 
-    createuser -DRSP sis
+    createuser -DRSP usuario
 
-Creacion de la base de datos del sistema
+Creación de la base de datos del sistema
 
-    createdb sis -O sis
+    createdb nombre-base -O usuario
 
-3) Configuracion del SIS
+3) Configuración del Plantilla Symfony
 -------------------------------
 Todos los pasos que se describen a continuación deben realizarse como usuario normal.
 
-Creacion de las carpetas cache y logs: 
+Creación de las carpetas cache y logs: 
 
     mkdir -p app/cache app/logs
 
@@ -65,7 +65,7 @@ crear el archivo **parameters.yml** dentro directorio **app/config/** con el sig
 
 Cambiar los valores de **database_name, database_user, database_password** por los valores apropiados.
 
-4) Instalacion de las dependencias (Bundles)
+4) Instalación de las dependencias (Bundles)
 --------------------------------------------
 
 Usar el siguiente comando como usuario normal:
@@ -92,30 +92,30 @@ Como **usuario root**, moverse a la carpeta:
 
         cd /etc/apache2/sites-available/
 
-Con un editor de texto crear el archivo **sis.localhost** con el siguiente contenido:
+Con un editor de texto crear el archivo **plantilla_symfony.localhost** con el siguiente contenido:
 
         # Inicio del archivo
         <VirtualHost VARIABLE_RETORNADA>
-        ServerName sis.localhost
-        DocumentRoot /var/www/sis/web  ##Esta debe ser la ruta donde está el proyecto y se debe de borrar este comentario
+        ServerName plantilla_symfony.localhost
+        DocumentRoot /var/www/plantilla_symfony/web/  ##Esta debe ser la ruta donde está el proyecto y se debe de borrar este comentario
         DirectoryIndex app.php
-        <Directory /var/www/sis/web >  ##Esta debe ser la ruta donde está el proyecto y se debe de borrar este comentario
+        <Directory /var/www/plantilla_symfony/web/ >  ##Esta debe ser la ruta donde está el proyecto y se debe de borrar este comentario
                 Options FollowSymLinks MultiViews
                 AllowOverride All
                 Order allow,deny
                 allow from all
         </Directory>
-        ErrorLog ${APACHE_LOG_DIR}/sis.localhost-error.log
+        ErrorLog ${APACHE_LOG_DIR}/plantilla_symfony.localhost-error.log
         # Possible values include: debug, info, notice, warn, error, crit,
         # alert, emerg.
         LogLevel warn
-        CustomLog ${APACHE_LOG_DIR}/sis.localhost-access.log combined
+        CustomLog ${APACHE_LOG_DIR}/plantilla_symfony.localhost-access.log combined
         </VirtualHost>
         # Fin del archivo
 
 Guardar el archivo. Luego, como **root** ejecutar:
 
-        a2ensite sis.localhost
+        a2ensite plantilla_symfony.localhost
 
 Habilitar el modo de reescritura con la siguiente sentencia:
 
@@ -128,29 +128,29 @@ Reiniciar el servicio de Apache
 Se debe agregar en el archivo **/etc/hosts** la IP junto con el ServerName 
 del Virtual Host. La línea debe ser similar a la siguiente:
 
-        X.X.X.X       sis.localhost
+        X.X.X.X       plantilla_symfony.localhost
 
 
-6) Verificando la configuracion del Sistema
+6) Verificando la configuración del Sistema
 --------------------------------------------
 
-Antes de empezar hay que asegurarse que el sistema local esta configurado correctamente para Symfony y sus dependencias.
+Antes de empezar hay que asegurarse que el sistema local está configurado correctamente para Symfony y sus dependencias.
 
 Acceder al script **config.php** desde el navegador:
 
-    http://sis.localhost/config.php
+    http://plantilla_symfony.localhost/config.php
 
-Si se obtienen warnings o recomendaciones, corregirlas antes de empezar a utilizar el sistema.
+Si se obtienen warnings o recomendaciónes, corregirlas antes de empezar a utilizar el sistema.
 
-6) Actualizacion de la base de datos
+7) Actualización de la base de datos
 --------------------------------------------
 Actualizar el esquema de la base de datos
 
     php app/console doctrine:schema:update --force
 
-7) Creacion del usuario dentro del sistema
+8) Creación del usuario dentro del sistema
 --------------------------------------------
-Crear el usuario que tendra los privilegios de SUPER ADMIN y tendra acceso total al sistema.
+Crear el usuario que tendrá los privilegios de SUPER ADMIN y tendrá acceso total al sistema.
 
     php app/console fos:user:create --super-admin
 
@@ -164,9 +164,17 @@ Actualizar los assets
 
 Ingresar al sistema.
 
-    http://sis.localhost/app_dev.php/
+    http://plantilla_symfony.localhost/app_dev.php/
 
-Documentacion Oficial
+9) Configuración del .gitignore
+-------------------------------
+Este proyecto ya incluye un archivo .gitignore
+
+Sin embargo, es necesario agregar todos aquellos archivos y directorios generados por otros IDE,
+editores de texto, etc.
+
+
+10) Documentación Oficial
 -------------------------------
 
   * **FrameworkBundle** - The core Symfony framework bundle
