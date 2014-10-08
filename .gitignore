@@ -1,5 +1,10 @@
 # Archivos de respaldo
 *~
+.*.kate-swp #kate
+.*.swp #VIM
+
+# Archivo de configuración de la personalización del comportamiento del directorio para KDE
+.directory
  
 # Bootstrap
 app/bootstrap*
@@ -20,3 +25,5 @@ app/config/parameters.yml
 composer.lock
 composer.phar
 
+# Carpeta nbproject de NetBeans
+nbproject/*
